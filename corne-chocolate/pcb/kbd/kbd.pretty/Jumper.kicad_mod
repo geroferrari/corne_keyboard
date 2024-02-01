@@ -17,9 +17,9 @@
     (stroke (width 0.15) (type solid)) (layer "F.SilkS") (tstamp f2dff280-b52a-46f8-93e7-14a391236b4b))
   (fp_line (start 1.143 0.889) (end -1.143 0.889)
     (stroke (width 0.15) (type solid)) (layer "F.SilkS") (tstamp 3dc07fcb-d49d-49d9-be3e-4ccdba925327))
-  (pad "1" smd rect (at -0.50038 0) (size 0.635 1.143) (layers "F.Cu" "F.Paste" "F.Mask")
+  (pad "1" smd rect (at -0.50038 0) (size 0.635 1.143) (layers "F.Cu" "F.Mask")
     (clearance 0.1905) (tstamp 08d42ee9-dd8a-452f-88c4-2f5bd01cd718))
-  (pad "2" smd rect (at 0.50038 0) (size 0.635 1.143) (layers "F.Cu" "F.Paste" "F.Mask")
+  (pad "2" smd rect (at 0.50038 0) (size 0.635 1.143) (layers "F.Cu" "F.Mask")
     (clearance 0.1905) (tstamp 97d36557-48a0-4f50-96ad-ff73c9989774))
   (model "smd\\resistors\\R0603.wrl"
     (offset (xyz 0 0 0.02539999962))
