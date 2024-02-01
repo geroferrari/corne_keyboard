@@ -1,22 +1,14 @@
 (footprint "SK6812MINI_underglow_rev" (version 20221018) (generator pcbnew)
   (layer "F.Cu")
   (attr through_hole)
-  (fp_text reference "REF**" (at 0 -2.5) (layer "F.SilkS") hide
-      (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text reference "REF**" (at 0 -2.5) (layer "B.SilkS") hide
+      (effects (font (size 0.5 0.5) (thickness 0.1) bold) (justify mirror))
     (tstamp d7c9d7aa-8c5c-488d-9752-64c69abef68d)
   )
-  (fp_text value "SK6812MINI" (at -0.3 2.7) (layer "F.Fab") hide
-      (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text value "SK6812MINI" (at 0.3 2.7) (layer "B.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     (tstamp cec3c71d-5241-4e81-acad-3e4f9b52751c)
   )
-  (fp_line (start 0.98 0.15) (end 3.4 0.15)
-    (stroke (width 0.3) (type solid)) (layer "B.SilkS") (tstamp be8f6f3b-5996-4193-8d65-23213ed0a7f5))
-  (fp_line (start 0.98 1.6) (end 0.98 0.15)
-    (stroke (width 0.3) (type solid)) (layer "B.SilkS") (tstamp e4a1a395-4769-4676-b3ae-2c3b558649ce))
-  (fp_line (start 3.43 0.15) (end 3.43 1.6)
-    (stroke (width 0.3) (type solid)) (layer "B.SilkS") (tstamp 8c249804-2ce7-4651-8794-358259e8a3b0))
-  (fp_line (start 3.43 1.6) (end 0.98 1.6)
-    (stroke (width 0.3) (type solid)) (layer "B.SilkS") (tstamp 36f747d7-d52f-4c4a-b1f0-55262f1c7b2b))
   (fp_line (start -1.75 -1.75) (end -1.75 1.75)
     (stroke (width 0.15) (type solid)) (layer "F.Fab") (tstamp c033d138-da25-4e4d-95bc-a67a406badf0))
   (fp_line (start -1.75 -1.75) (end 1.75 -1.75)

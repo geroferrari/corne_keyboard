@@ -1,20 +1,27 @@
-(module StripLED_1side (layer F.Cu) (tedit 5CC6A803)
-  (fp_text reference J2 (at 0 -2.54) (layer F.SilkS) hide
-    (effects (font (size 1 1) (thickness 0.15)))
+(footprint "StripLED_1side" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (attr through_hole)
+  (fp_text reference "J2" (at 0 -2.54) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp f22c1af5-dc5f-4086-8bad-c0211ce0ee1c)
   )
-  (fp_text value led (at 0 7.62) (layer F.Fab) hide
-    (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text value "led" (at 0 7.62) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 04040225-1425-4d22-8807-8c4c74a0e0df)
   )
-  (fp_text user VCC (at -2.75 0.1) (layer F.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text user "GND" (at 2.7432 5.1308) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 319f0d4c-1424-401c-b0bf-30bd28d6e2f1)
   )
-  (fp_text user LED (at -2.71 2.56) (layer F.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text user "LED" (at 2.8332 2.5408) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 586abbb2-f479-4893-8b5e-f13f37134a93)
   )
-  (fp_text user GND (at -2.8 5.15) (layer F.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text user "VCC" (at 2.7932 0.0808) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp f3fef203-f554-47be-94a2-2b606122cd98)
   )
-  (pad 3 smd rect (at 0 5.08) (size 1.524 1.524) (layers F.Cu F.Mask))
-  (pad 2 smd rect (at 0 2.54) (size 1.524 1.524) (layers F.Cu F.Mask))
-  (pad 1 smd rect (at 0 0) (size 1.524 1.524) (layers F.Cu F.Mask))
+  (pad "1" smd rect (at 0 0) (size 1.524 1.524) (layers "F.Cu" "F.Mask") (tstamp 3f1b6dbc-a8a5-435c-bcb9-93217e6b0312))
+  (pad "2" smd rect (at 0 2.54) (size 1.524 1.524) (layers "F.Cu" "F.Mask") (tstamp 2d0f57de-c4e2-47a7-a8c4-8797960e01c4))
+  (pad "3" smd rect (at 0 5.08) (size 1.524 1.524) (layers "F.Cu" "F.Mask") (tstamp 58885230-8f98-4d40-b877-f2131a20da8e))
 )
