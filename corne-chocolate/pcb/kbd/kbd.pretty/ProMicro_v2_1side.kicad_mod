@@ -137,4 +137,9 @@
   (pad "22" thru_hole circle (at -7.5636 -9.398) (size 1.524 1.524) (drill 0.8128) (layers "*.Cu" "*.Mask") (tstamp af8d73f2-17ac-4034-8506-e73a6c7878c3))
   (pad "23" thru_hole circle (at -7.5636 -11.938) (size 1.524 1.524) (drill 0.8128) (layers "*.Cu" "*.Mask") (tstamp 6ad3b7ef-0012-4a74-9d01-1ec6d76288f2))
   (pad "24" thru_hole circle (at -7.5636 -14.478) (size 1.524 1.524) (drill 0.8128) (layers "*.Cu" "*.Mask") (tstamp 27bedc71-23f3-4f18-a199-240897a93982))
+  (model "${KIPRJMOD}/kbd/kbd.3dshapes/ProMicro.step"
+    (offset (xyz 0 0 2.5))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 180 0 -180))
+  )
 )
