@@ -57,8 +57,8 @@
         }
       ],
       "drc_exclusions": [
-        "lib_footprint_issues|238455610|117873380|2ec9ed1b-78fd-4f71-b49f-99e34f824b2a|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_issues|56917410|117873780|5cf74902-4dc2-4fd0-b667-acb0a73417e2|00000000-0000-0000-0000-000000000000"
+        "lib_footprint_issues|236397800|118110000|2ec9ed1b-78fd-4f71-b49f-99e34f824b2a|00000000-0000-0000-0000-000000000000",
+        "lib_footprint_issues|58928000|118110000|5cf74902-4dc2-4fd0-b667-acb0a73417e2|00000000-0000-0000-0000-000000000000"
       ],
       "meta": {
         "filename": "board_design_settings.json",
@@ -178,8 +178,10 @@
       ],
       "track_widths": [
         0.0,
-        0.2,
-        0.5
+        0.254,
+        0.508,
+        1.0,
+        1.27
       ],
       "via_dimensions": [
         {
@@ -242,7 +244,7 @@
         0,
         0,
         0,
-        1,
+        0,
         0,
         1,
         0,
@@ -270,20 +272,6 @@
         0,
         0,
         0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        2
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -292,15 +280,29 @@
         2
       ],
       [
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
         1,
         1,
         0,
         1,
-        1,
-        1,
+        0,
+        0,
+        0,
+        0,
+        0,
         1,
         1,
         2
@@ -312,7 +314,7 @@
         1,
         0,
         0,
-        1,
+        0,
         0,
         0,
         0,
@@ -326,7 +328,7 @@
         2,
         0,
         0,
-        1,
+        0,
         0,
         2,
         2,
@@ -402,7 +404,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
       "simulation_model_issue": "ignore",

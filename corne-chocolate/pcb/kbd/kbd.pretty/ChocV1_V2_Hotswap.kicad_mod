@@ -1,8 +1,8 @@
 (footprint "ChocV1_V2_Hotswap" (version 20221018) (generator pcbnew)
   (layer "F.Cu")
   (attr through_hole)
-  (fp_text reference "REF**" (at -4.4196 -5.9436) (layer "B.SilkS") hide
-      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+  (fp_text reference "REF**" (at -8.7122 1.6764) (layer "B.SilkS")
+      (effects (font (size 0.6 0.6) (thickness 0.127) bold) (justify mirror))
     (tstamp 05bb8450-23cb-400b-985f-ea1bf0992121)
   )
   (fp_text value "SW_PUSH" (at 4.95 -8.6) (layer "F.Fab") hide
@@ -197,4 +197,9 @@
   (pad "" thru_hole oval (at 5.55 -5 180) (size 2.2 1.5) (drill oval 1 0.3) (layers "*.Cu" "*.Mask") (tstamp 5529a24d-266f-4b1a-85c1-082916542b5b))
   (pad "1" smd rect (at -8.3 3.7 180) (size 2.6 2.6) (layers "B.Cu" "B.Paste" "B.Mask") (tstamp aaf03380-b7ec-4a7e-9e8a-c5b9c50b7554))
   (pad "2" smd rect (at 3.3 5.9 180) (size 2.6 2.6) (layers "B.Cu" "B.Paste" "B.Mask") (tstamp d982fb33-5c57-43e8-b753-72a1369a561c))
+  (model "${KIPRJMOD}/kbd/kbd.3dshapes/PG1350-socket.STEP"
+    (offset (xyz -10 -6 -1.5))
+    (scale (xyz 1 1 1))
+    (rotate (xyz -90 0 180))
+  )
 )
