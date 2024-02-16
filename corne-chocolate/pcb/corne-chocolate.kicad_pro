@@ -3,7 +3,7 @@
     "3dviewports": [],
     "design_settings": {
       "defaults": {
-        "board_outline_line_width": 0.09999999999999999,
+        "board_outline_line_width": 0.15,
         "copper_line_width": 0.19999999999999998,
         "copper_text_italic": false,
         "copper_text_size_h": 1.5,
@@ -56,10 +56,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "lib_footprint_issues|236397800|118110000|2ec9ed1b-78fd-4f71-b49f-99e34f824b2a|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_issues|58928000|118110000|5cf74902-4dc2-4fd0-b667-acb0a73417e2|00000000-0000-0000-0000-000000000000"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
@@ -455,7 +452,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "corne-chocolate.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
