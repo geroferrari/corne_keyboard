@@ -146,10 +146,9 @@ bool oled_task_kb(void) {
         return false;
     }
     if (is_keyboard_master()) {
+    } else {
         oled_render_layer_state();
         oled_render_keylog();
-    } else {
-        oled_render_logo();
     }
     return false;
 }
