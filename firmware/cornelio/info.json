@@ -3,14 +3,97 @@
     "manufacturer": "Saavedra",
     "url": "",
     "maintainer": "qmk",
-    "usb": {
-        "vid": "0x4653",
-        "pid": "0x0001",
-        "device_version": "0.0.1"
+    "processor": "atmega32u4",
+    "development_board": "promicro",
+    "build": {
+        "lto": true
+    },
+    "features": {
+        "bootmagic": true,
+        "oled": true,
+        "rgb_matrix": true
+    },
+    "community_layouts": ["split_3x5_3"],    
+    "layouts": {
+        "LAYOUT_split_3x5_3": {
+            "layout": [
+                {"matrix": [0, 1], "x": 0, "y": 0.3},
+                {"matrix": [0, 2], "x": 1, "y": 0.1},
+                {"matrix": [0, 3], "x": 2, "y": 0},
+                {"matrix": [0, 4], "x": 3, "y": 0.1},
+                {"matrix": [0, 5], "x": 4, "y": 0.2},
+
+                {"matrix": [4, 5], "x": 8, "y": 0.2},
+                {"matrix": [4, 4], "x": 9, "y": 0.1},
+                {"matrix": [4, 3], "x": 10, "y": 0},
+                {"matrix": [4, 2], "x": 11, "y": 0.1},
+                {"matrix": [4, 1], "x": 12, "y": 0.3},
+
+                {"matrix": [1, 1], "x": 0, "y": 1.3},
+                {"matrix": [1, 2], "x": 1, "y": 1.1},
+                {"matrix": [1, 3], "x": 2, "y": 1},
+                {"matrix": [1, 4], "x": 3, "y": 1.1},
+                {"matrix": [1, 5], "x": 4, "y": 1.2},
+
+                {"matrix": [5, 5], "x": 8, "y": 1.2},
+                {"matrix": [5, 4], "x": 9, "y": 1.1},
+                {"matrix": [5, 3], "x": 10, "y": 1},
+                {"matrix": [5, 2], "x": 11, "y": 1.1},
+                {"matrix": [5, 1], "x": 12, "y": 1.3},
+
+                {"matrix": [2, 1], "x": 0, "y": 2.3},
+                {"matrix": [2, 2], "x": 1, "y": 2.1},
+                {"matrix": [2, 3], "x": 2, "y": 2},
+                {"matrix": [2, 4], "x": 3, "y": 2.1},
+                {"matrix": [2, 5], "x": 4, "y": 2.2},
+
+                {"matrix": [6, 5], "x": 8, "y": 2.2},
+                {"matrix": [6, 4], "x": 9, "y": 2.1},
+                {"matrix": [6, 3], "x": 10, "y": 2},
+                {"matrix": [6, 2], "x": 11, "y": 2.1},
+                {"matrix": [6, 1], "x": 12, "y": 2.3},
+
+                {"matrix": [3, 3], "x": 3, "y": 3.7},
+                {"matrix": [3, 4], "x": 4, "y": 3.7},
+                {"matrix": [3, 5], "x": 5, "y": 3.2, "h": 1.5},
+
+                {"matrix": [7, 5], "x": 7, "y": 3.2, "h": 1.5},
+                {"matrix": [7, 4], "x": 8, "y": 3.7},
+                {"matrix": [7, 3], "x": 9, "y": 3.7}
+            ]
+        }
+    },    
+    "diode_direction": "COL2ROW",
+    "matrix_pins": {
+        "cols": [ "F4", "F5", "F6", "F7", "B1", "B3" ],
+        "rows": [ "D4", "C6", "D7", "E6" ]
     },
     "rgb_matrix": {
         "driver": "ws2812",
         "split_count": [24, 24],
+        "max_brightness": 176,
+        "animations": {
+            "alphas_mods": true,
+            "gradient_up_down": true,
+            "breathing": true,
+            "band_sat": true,
+            "cycle_left_right": true,
+            "rainbow_beacon": true,
+            "jellybean_raindrops": true,
+            "hue_breathing": true,
+            "hue_wave": true,
+            "typing_heatmap": true,
+            "digital_rain": true,
+            "solid_reactive_simple": true,
+            "solid_reactive_wide": true,
+            "solid_reactive_cross": true,
+            "solid_reactive_nexus": true,
+            "solid_splash": true
+        },
+        "default": {
+            "speed": 32,
+            "val": 128
+        },
         "layout": [
             {"matrix": [0, 5], "x": 85, "y": 4, "flags": 4},
             {"matrix": [0, 4], "x": 68, "y": 2, "flags": 4},
@@ -62,84 +145,22 @@
             {"matrix": [7, 5], "x": 129, "y": 63, "flags": 1}
         ]
     },        
-    "features": {
-        "bootmagic": true,
-        "oled": true,
-        "rgblight": true
-    },
-    "build": {
-        "lto": true
-    },
-    "matrix_pins": {
-        "cols": [ "F4", "F5", "F6", "F7", "B1", "B3" ],
-        "rows": [ "D4", "C6", "D7", "E6" ]
-    },
-    "diode_direction": "COL2ROW",
     "split": {
         "enabled": true,
         "soft_serial_pin": "D2",
         "transport": {
+            "protocol": "serial",
             "sync": {
                 "matrix_state": true
             }
         }        
     },
-    "processor": "atmega32u4",
-    "rgblight": {
-        "led_count": 48,
-        "split_count": [24, 24]
+    "usb": {
+        "vid": "0x4653",
+        "pid": "0x0001",
+        "device_version": "0.0.1"
     },
     "ws2812": {
         "pin": "D3"
-    },
-    "development_board": "promicro",
-    "layouts": {
-        "LAYOUT_split_3x5_3": {
-            "layout": [
-                {"matrix": [0, 1], "x": 0, "y": 0.3},
-                {"matrix": [0, 2], "x": 1, "y": 0.1},
-                {"matrix": [0, 3], "x": 2, "y": 0},
-                {"matrix": [0, 4], "x": 3, "y": 0.1},
-                {"matrix": [0, 5], "x": 4, "y": 0.2},
-
-                {"matrix": [4, 5], "x": 8, "y": 0.2},
-                {"matrix": [4, 4], "x": 9, "y": 0.1},
-                {"matrix": [4, 3], "x": 10, "y": 0},
-                {"matrix": [4, 2], "x": 11, "y": 0.1},
-                {"matrix": [4, 1], "x": 12, "y": 0.3},
-
-                {"matrix": [1, 1], "x": 0, "y": 1.3},
-                {"matrix": [1, 2], "x": 1, "y": 1.1},
-                {"matrix": [1, 3], "x": 2, "y": 1},
-                {"matrix": [1, 4], "x": 3, "y": 1.1},
-                {"matrix": [1, 5], "x": 4, "y": 1.2},
-
-                {"matrix": [5, 5], "x": 8, "y": 1.2},
-                {"matrix": [5, 4], "x": 9, "y": 1.1},
-                {"matrix": [5, 3], "x": 10, "y": 1},
-                {"matrix": [5, 2], "x": 11, "y": 1.1},
-                {"matrix": [5, 1], "x": 12, "y": 1.3},
-
-                {"matrix": [2, 1], "x": 0, "y": 2.3},
-                {"matrix": [2, 2], "x": 1, "y": 2.1},
-                {"matrix": [2, 3], "x": 2, "y": 2},
-                {"matrix": [2, 4], "x": 3, "y": 2.1},
-                {"matrix": [2, 5], "x": 4, "y": 2.2},
-
-                {"matrix": [6, 5], "x": 8, "y": 2.2},
-                {"matrix": [6, 4], "x": 9, "y": 2.1},
-                {"matrix": [6, 3], "x": 10, "y": 2},
-                {"matrix": [6, 2], "x": 11, "y": 2.1},
-                {"matrix": [6, 1], "x": 12, "y": 2.3},
-
-                {"matrix": [3, 3], "x": 3, "y": 3.7},
-                {"matrix": [3, 4], "x": 4, "y": 3.7},
-                {"matrix": [3, 5], "x": 5, "y": 3.2, "h": 1.5},
-
-                {"matrix": [7, 5], "x": 7, "y": 3.2, "h": 1.5},
-                {"matrix": [7, 4], "x": 8, "y": 3.7},
-                {"matrix": [7, 3], "x": 9, "y": 3.7}
-            ]
-        }
-    }    
+    }
 }
