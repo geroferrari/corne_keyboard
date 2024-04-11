@@ -128,34 +128,58 @@ void sfta_reset (tap_dance_state_t *state, void *user_data) {
   }
 }
 
+void ctl_minus_finished (tap_dance_state_t *state, void *user_data) {
+  td_state = cur_dance(state);
+  switch (td_state) {
+    case SINGLE_TAP:
+      register_code (ES_MINS);
+      break;
+    case SINGLE_HOLD:
+      register_mods(MOD_BIT(KC_RCTL));
+      break;
+    case DOUBLE_SINGLE_TAP:
+      register_code16 (ES_UNDS);
+  }
+}
+
+void ctl_minus_reset (tap_dance_state_t *state, void *user_data) {
+  switch (td_state) {
+    case SINGLE_TAP:
+      unregister_code (ES_MINS);
+      break;
+    case SINGLE_HOLD:
+      unregister_mods(MOD_BIT(KC_RCTL));
+      break;
+    case DOUBLE_SINGLE_TAP:
+      unregister_code16 (ES_UNDS);
+  }
+}
+
 enum {
   TD_DOT_CLN,
   TD_COMM_SCLN,
-  TD_L_UNDS,
   SFT_A,
   CT_E,
   CT_I,
   CT_O,
-  CT_U
+  CT_U,
+  CTL_MINUS
 };
 
 tap_dance_action_t tap_dance_actions[] = {
   [TD_DOT_CLN]  = ACTION_TAP_DANCE_DOUBLE(ES_DOT, ES_COLN),
   [TD_COMM_SCLN]  = ACTION_TAP_DANCE_DOUBLE(ES_COMM, ES_SCLN),
-  [TD_L_UNDS]  = ACTION_TAP_DANCE_DOUBLE(KC_L, ES_UNDS),
   [SFT_A] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sfta_finished, sfta_reset),
   [CT_E] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_e_finished, dance_e_reset),
   [CT_I] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_i_finished, dance_i_reset),
   [CT_O] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_o_finished, dance_o_reset),
-  [CT_U] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_u_finished, dance_u_reset)
+  [CT_U] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_u_finished, dance_u_reset),
+  [CTL_MINUS] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, ctl_minus_finished, ctl_minus_reset)
 };
 
 #define KC_SFT_A  MT(MOD_LSFT, KC_A)     // Tap for A, hold for Shift
 #define KC_SFT_CL MT(MOD_RSFT, ES_NTIL)  // Tap for ñ (latam keyboard), hold for Shift
 #define KC_CTL_Z  MT(MOD_LCTL, KC_Z)     // Tap for Z, hold for Control
-#define KC_CTL_SL MT(MOD_RCTL, ES_MINS)  // Tap for minus (latam keyboard), hold for Control
-
-
 #define KC_ALT_Q MT(MOD_LALT, KC_Q)  // Tap for Esc, hold for Alt (Option)
 #define KC_NUM_SPC LT(_NUMBERS, KC_SPC)  // Tap for Space, hold for Special layer
 #define KC_SPE_ENT LT(_SPECIAL, KC_ENT)  // Tap for Enter, hold for Numbers layer
@@ -165,9 +189,9 @@ tap_dance_action_t tap_dance_actions[] = {
      * ,-----------------------------.      ,-----------------------------.
      * |     |     |     |    LMB    |      |     |     |     |     |     |
      * |-----+-----+-----+-----+-----|      |-----+-----+-----+-----+-----|
-     * |     |    TAB   ESC   RMB    |      |     |   BSPC    |     |     |
+     * |     |    TAB   ESC   RMB    |      |   COPY   BSPC   |     |     |
      * |-----+-----+-----+-----+-----|      |-----+-----+-----+-----+-----|
-     * |     |     |     |    MMB    |      |     |     |     |     |     |
+     * |     |     |   CLOSE  MMB    |      |   PASTE   |     |     |     |
      * `-----------------------------'      `-----------------------------'
      *             .-----------------.       .-----------------.
      *             |     |     |     |       |     |     |     |
@@ -179,6 +203,9 @@ const uint16_t PROGMEM combo3[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM combo4[] = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM combo5[] = {KC_F, KC_G, COMBO_END};
 const uint16_t PROGMEM combo6[] = {KC_V, KC_B, COMBO_END};
+const uint16_t PROGMEM combo7[] = {KC_H, KC_J, COMBO_END};
+const uint16_t PROGMEM combo8[] = {KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM combo9[] = {KC_C, KC_V, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo1, KC_ESC),
@@ -187,6 +214,9 @@ combo_t key_combos[] = {
     COMBO(combo4, KC_BTN1),
     COMBO(combo5, KC_BTN2),
     COMBO(combo6, KC_BTN3),
+    COMBO(combo7, LCTL(KC_C)),
+    COMBO(combo8, LCTL(KC_V)),
+    COMBO(combo9, LGUI(KC_X)),
 };
 
 
@@ -194,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 0: Alpha layer
      *
      * ,-------------------------------.      ,-------------------------------.
-     * |     Q |  W  |  E  |  R  |  T  |      |  Y  |  U  |  I  |  O  |   P   |
+     * | ALT Q |  W  |  E  |  R  |  T  |      |  Y  |  U  |  I  |  O  |   P   |
      * |-------+-----+-----+-----+-----|      |-----+-----+-----+-----+-------|
      * | SHFT A|  S  |  D  |  F  |  G  |      |  H  |  J  |  K  | L(_)|SHFT ñ |
      * |-------+-----+-----+-----+-----|      |-----+-----+-----+-----+-------|
@@ -206,8 +236,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_ALPHA] = LAYOUT_split_3x5_3(
          KC_ALT_Q,  KC_W,   TD(CT_E),  KC_R,   KC_T,      KC_Y,   TD(CT_U),   TD(CT_I),         TD(CT_O),       KC_P,
-         TD(SFT_A), KC_S,   KC_D,      KC_F,   KC_G,      KC_H,   KC_J,       KC_K,             TD(TD_L_UNDS),  KC_SFT_CL,
-         KC_CTL_Z, KC_X,    KC_C,      KC_V,   KC_B,      KC_N,   KC_M,       TD(TD_COMM_SCLN), TD(TD_DOT_CLN), KC_CTL_SL,
+         TD(SFT_A), KC_S,   KC_D,      KC_F,   KC_G,      KC_H,   KC_J,       KC_K,             KC_L,           KC_SFT_CL,
+         KC_CTL_Z, KC_X,    KC_C,      KC_V,   KC_B,      KC_N,   KC_M,       TD(TD_COMM_SCLN), TD(TD_DOT_CLN), TD(CTL_MINUS),
         LM(_NUMBERS, MOD_LGUI), KC_LGUI, KC_NUM_SPC,      KC_SPE_ENT, KC_TAB, MO(_ADJUST)),
 
     /* Keymap 1: Special characters layer

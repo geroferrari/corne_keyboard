@@ -142,6 +142,10 @@
             "protocol": "serial"
         }        
     },
+    "caps_word": {
+        "enabled": true,
+        "both_shifts_turns_on": true
+    },
     "usb": {
         "vid": "0x4653",
         "pid": "0x0001",
